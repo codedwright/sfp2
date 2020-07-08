@@ -9,8 +9,7 @@ class Fibonacci
     private $first_number = 1;
     private $second_number = 1;
 
-    // TODO: add constructor arg for size of resulting array / iterations
-    public function __construct()
+    public function __construct(int $iterations = 10)
     {
         $file = fopen("assets/fibonacci.csv", "r");
 
@@ -25,7 +24,7 @@ class Fibonacci
             $this->setNumberInFibonacciArray($this->getSecondNumber());
         }
 
-        for ($i = 0; $i < 9; $i++) {
+        for ($i = 0; $i < ($iterations - 1); $i++) {
             $this->fibonacci($this->getFirstNumber(), $this->getSecondNumber());
             $this->setNumberInFibonacciArray($this->getSecondNumber());
         }
@@ -116,7 +115,7 @@ class Fibonacci
     }
 }
 
-//$class = new Fibonacci();
+//$class = new Fibonacci("cat");
 //var_dump(
 //    $class->execute()
 //);
